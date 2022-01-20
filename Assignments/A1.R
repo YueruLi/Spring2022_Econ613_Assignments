@@ -418,6 +418,10 @@ library(dplyr)
 dataQ3.5 = dataQ3.2
 #I drop the individuals with NA for both employment status and profession
 dataQ3.5 = dataQ3.5[!(is.na(dataQ3.5$profession) & is.na(dataQ3.5$empstat)),]
+dim(dataQ3.5[is.na(dataQ3.5$empstat),])[1]
+dim(dataQ3.5[is.na(dataQ3.5$profession),])[1]
+#I change the NA's to blanks
+dataQ3.5[is.na(dataQ3.5$profession),]$profession = ""
 #I count people who changed employment status and profession separately 
 familiesMigrated = dataQ3.5 %>% group_by(idmen) %>% dplyr::summarise(onceMoved = (sum(movedInThisYr)>0))
 familiesMigrated = familiesMigrated[familiesMigrated$onceMoved==TRUE,]
