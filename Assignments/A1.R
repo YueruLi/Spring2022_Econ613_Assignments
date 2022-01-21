@@ -446,13 +446,13 @@ for (i in seq(2005,2019,1)){
   print(part0)
   #Identify the households with at least one member change career
   IndiTemp1 = as.data.frame(dataTemp %>% group_by(idind) %>% dplyr::summarize(ChangedCareer = (1 < n_distinct(profession))))
-  IndiTemp1 = IndiTemp[IndiTemp$ChangedCareer==TRUE,]
+  IndiTemp1 = IndiTemp1[IndiTemp1$ChangedCareer==TRUE,]
   
   #Identify the households with at least one member change employment status
   IndiTemp2 = as.data.frame(dataTemp %>% group_by(idind) %>% dplyr::summarize(ChangedEmpstat = (1 < n_distinct(empstat))))
   IndiTemp2 = IndiTemp2[IndiTemp2$ChangedEmpstat==TRUE,]
   #Combine the two results
-  familyCount = dataTemp[dataTemp$idind %in% IndiTemp$idind | dataTemp$idind %in% IndiTemp2$idind,]
+  familyCount = dataTemp[dataTemp$idind %in% IndiTemp1$idind | dataTemp$idind %in% IndiTemp2$idind,]
   numChangedCareer = length(unique(familyCount$idmen))
   print(paste(numChangedCareer, " of them had at least one member changed career or employment status"))
 }
