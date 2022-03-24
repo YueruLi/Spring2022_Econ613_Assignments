@@ -9,4 +9,5 @@ There should be PDF files named "ReadingNotesX.pdf", where X is the indexing of 
 
 For Reading Note 1, I replaced the old reading note with the revised one. So it bears the name ReadingNote1.pdf
 
+Starting with reading notes 3, the files names have been changed to "RNX_Josh(Yueru)",  Li.PDF with X being indexing of the reading note.
 Thank you TAs!
